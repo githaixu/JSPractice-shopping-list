@@ -3,24 +3,21 @@
   <head>
     <meta charset="utf-8">
     <link href="styles.css" rel="stylesheet" />
-    <title>JavaScript DOM Tutorials</title>
+    <title>ToDoリストapps</title>
     <script src="app.js"></script>
   </head>
   <body>
-    <!--wrapper for the whole page -->
   	<div id="wrapper">
-      <!-- header include search bar -->
 	    <header>
 	    	<div id="page-banner">
-	    		<h1 class="title">買い物リストアプリ</h1>
-          <p>物を買い忘れないようにリストを作成しよう！</p>
-          <form id="search-books">
+	    		<h1 class="title">Dodo List</h1>
+          <form id="search-todo">
             <input type="text" placeholder="検索する" />
           </form>
 	    	</div>
 	    </header>
       <!--list added -->
-	    <div id="book-list">
+	    <div id="todo-list">
 	    	<ul>
 	    		<!-- <li>
 	    			<span class="name">Name of the Wind</span>
@@ -33,7 +30,7 @@
         <input form="add-book" type="checkbox" id="hide">
         <label for="hide">リストを隠す</label>
       </div>
-	    <form id="add-book">
+	    <form id="add-todo">
 	    	<input type="text" placeholder="リストに物を追加する" />
 	    	<button>Add</button>
 	    </form>
