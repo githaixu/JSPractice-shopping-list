@@ -1,1 +1,0 @@
-# JSPractice-shopping-list
