@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded',function(){
+  //ulのリストエレメントを取得する
+  const list = document.querySelector('#todo-list ul');
 
-  const list = document.querySelector('#book-list ul');
-
-  //delete books from book lists
+  //リストからアイテムを削除する
   list.addEventListener('click', function(e){
     if(e.target.className == 'delete'){
       const li = e.target.parentElement;
@@ -10,82 +10,59 @@ document.addEventListener('DOMContentLoaded',function(){
     }
   })
 
-  //add book list
-  const addForm = document.forms['add-book'];
+  //リストにアイテムを追加する
+  const addForm = document.forms['add-todo'];
   addForm.addEventListener('submit', function(e){
     e.preventDefault();
+    //インプットの値を取得する
     const value = addForm.querySelector('input[type="text"]').value;
-    //create element
+    //エレメントを作成する
     const li = document.createElement('li');
-    const bookName = document.createElement('span');
+    const todoName = document.createElement('span');
     const deleteBtn = document.createElement('span');
-    //apend child
+    //インプットのの値がない場合
     if(value == ''){
       alert('追加するリストを記入してください。')
+      //新しいリストを追加する
     }else{
-      li.appendChild(bookName);
+      li.appendChild(todoName);
       li.appendChild(deleteBtn);
       list.appendChild(li);
-      //add content
-      bookName.textContent = value;
+      //内容を追加する
+      todoName.textContent = value;
       deleteBtn.textContent = 'delete';
-      //add class name
-      bookName.classList.add('name');
+      //クラスをクラスリストに追加する
+      todoName.classList.add('name');
       deleteBtn.classList.add('delete');
-      //reset entryed value
+      //リセット
       addForm.querySelector('input[type="text"]').value = '';
     }
   });
-  //
-  const hideBooks = document.querySelector('#hide');
-  hideBooks.addEventListener('change', function(e){
-   if(hideBooks.checked){
+  //リスクを隠すのチェックボックスがチェックされた場合、todoを隠す
+  const hideTodos = document.querySelector('#hide');
+  hideTodos.addEventListener('change', function(e){
+   if(hideTodos.checked){
      list.style.display = 'none';
    }else{
      list.style.display = 'initial';
    }
   });
 
-  //add search function
-  //grab the input
-  const searchBar = document.forms['search-books'].querySelector('input');
-  //add event listenr to the input
+//リスト検索機能を追加する
+  const searchBar = document.forms['search-todo'].querySelector('input');
+  //インプットに対してイベントリスナーを追加する
   searchBar.addEventListener('keyup', function(e){
     const term = e.target.value.toLowerCase();
-    //grab all books li
-    const books = list.querySelectorAll('li');
-    books.forEach(function(book){
-      const title = book.firstElementChild.textContent;
-      //match term with title
-      //using indexOf() to return to positon of the term in the title
+    //すべてのTODOを受け取る
+    const todos = list.querySelectorAll('li');
+    //ループしてマッチングを探す
+    todos.forEach(function(todo){
+      const title = todo.firstElementChild.textContent;
       if(title.toLowerCase().indexOf(term) == -1){
-          book.style.display = 'none';
+        todo.style.display = 'none';
       }else{
-        book.style.display = 'block';
+        todo.style.display = 'block';
       }
     });
   });
-  const tabs = document.querySelector('.tabs');
-  const panels = document.querySelectorAll('.panel');
-  const lis = document.querySelectorAll('.li');
-  //change color if for selected botton
-  tabs.addEventListener('click', function(e){
-    lis.forEach(function(li){
-      li.classList.remove('hl');
-    })
-    e.target.classList.add('hl');
-  });
-
-  //change content for selected botton
-  tabs.addEventListener('click', function(e){
-      const targetPanel = document.querySelector(e.target.dataset.target);
-      panels.forEach(function(panel){
-        if(panel == targetPanel){
-          panel.classList.add('active');
-        }else{
-          panel.classList.remove('active');
-        }
-      });
-  });
-
 });
