@@ -1,189 +1,39 @@
-<!doctype html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PortFolia | Landing Page</title>
-    <!-- google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Bitter:400,700" rel="stylesheet">
-    <!--Ion Icons-->
-    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
-    <!--自分のスタイルシート-->
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-  <!-- header start -->
-  <header>
-    <div class="container">
-      <nav>
-        <!-- サイトのロゴ -->
-        <div class="nav-logo">
-          <img src="images/logo.png" alt="logo">
-        </div>
-        <!-- ハンバーガーメニューアイコン -->
-        <div class="menu-icons open">
-          <i class="icon ion-md-menu"></i>
-        </div>
-        <!-- ナビゲーションリスト -->
-        <ul class="nav-list">
-          <div class="menu-icons close">
-            <i class="icon ion-md-close"></i>
-          </div>
-          <li class="nav-item"><a href="#project" class="nav-link" onclick="clickPageLink()">Project</a></li>
-          <li class="nav-item"><a href="#about" class="nav-link" onclick="clickPageLink()">About</a></li>
-          <li class="nav-item"><a href="#contact" class="nav-link" onclick="clickPageLink()">Contact</a></li>
-        </ul>
-      </nav>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="styles.css" rel="stylesheet" />
+    <title>ToDoリストapps</title>
+    <script src="app.js"></script>
+  </head>
+  <body>
+  	<div id="wrapper">
+	    <header>
+	    	<div id="page-banner">
+	    		<h1 class="title">Dodo List</h1>
+          <form id="search-todo">
+            <input type="text" placeholder="検索する" />
+          </form>
+	    	</div>
+	    </header>
+      <!--list added -->
+	    <div id="todo-list">
+	    	<ul>
+	    		<!-- <li>
+	    			<span class="name">Name of the Wind</span>
+	    			<span class="delete">delete</span>
+	    		</li> -->
+	    	</ul>
+	    </div>
+      <!-- hide all entry -->
+      <div class="checkbox">
+        <input form="add-book" type="checkbox" id="hide">
+        <label for="hide">リストを隠す</label>
+      </div>
+	    <form id="add-todo">
+	    	<input type="text" placeholder="リストに物を追加する" />
+	    	<button>Add</button>
+	    </form>
     </div>
-  </header>
-  <!-- header end -->
-  <!-- main start -->
-  <main>
-    <section class="purpose">
-      <div class="container">
-        <div class="main-message">
-          <h1 id="moto">Keep learning and exploring!</h1>
-          <p>このwebサイトでは、自分がHTML、CSSとJavascripなどの技術を学習する段階で、作成した幾つかのプロジェクトを展示しております。</p>
-        </div>
-      </div>
-    </section>
-    <section class="project" id="project">
-      <div class="container">
-        <div class="title-heading">
-          <h1 class="title"><span>My Project</span></h1>
-        </div>
-        <!-- flex item 1 -->
-        <div class="project-flex">
-          <div class="flex-item" id="game">
-            <div class="overlay">
-              <p class='project-explanation'>コンピューターとじゃんけん勝負</p>
-              <div class="btn">
-                <a target="_blank" href="https://github.com/githaixu/JSPractice-RSPgame">To Github</a>
-                <a target="_blank" href="https://githaixu.github.io/JSPractice-RSPgame/">To Project</a>
-              </div>
-            </div>
-          </div>
-          <!-- flex item 2 -->
-          <div class="flex-item" id="calculator">
-            <div class="overlay">
-              <p class='project-explanation'>計算機アプリ</p>
-              <div class="btn">
-                <a target="_blank" href="https://github.com/githaixu/JSPractice-Calculator">To Github</a>
-                <a target="_blank" href="https://githaixu.github.io/JSPractice-Calculator/">To Project</a>
-              </div>
-            </div>
-          </div>
-          <!-- flex item 3 -->
-          <div class="flex-item" id="weather">
-            <div class="overlay">
-              <p class='project-explanation'>天気予報アプリ</p>
-              <div class="btn">
-                <a target="_blank" href="https://github.com/githaixu/JSPractice-Weather-App">To Github</a>
-                <a target="_blank" href="https://githaixu.github.io/JSPractice-Weather-App/">To Project</a>
-              </div>
-            </div>
-          </div>
-          <div class="flex-item" id="todo-list">
-            <div class="overlay">
-              <p class='project-explanation'>ToDoリスト作成アプリ</p>
-              <div class="btn">
-                <a target="_blank" href="https://github.com/githaixu/JSPractice-todo-list">To Github</a>
-                <a target="_blank" href="https://githaixu.github.io/JSPractice-todo-list/">To Project</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- flex item 4 -->
-
-          <!-- flex item 5 -->
-          <div class="flex-item" id="canvas">
-            <div class="overlay">
-              <p class='project-explanation'>インターラクティブキャンパス</p>
-              <div class="btn">
-                <a target="_blank" href="https://github.com/githaixu/JSPractive-canvas">To Github</a>
-                <a target="_blank" href="https://githaixu.github.io/JSPractive-canvas/">To Project</a>
-              </div>
-            </div>
-          </div>
-          <!-- flex item 6 -->
-          <div class="flex-item" id="comming-soon">
-            <div class="overlay">
-              <p class='project-explanation'>Coming soon</p>
-              <!-- <div class="btn">
-                <a target="_blank" href="https://github.com/githaixu/JSPractice-Weather-App">To Github</a>
-                <a target="_blank" href="https://githaixu.github.io/JSPractice-Weather-App/">To Project</a>
-              </div> -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="about" id="about">
-      <div class="container">
-        <div class="experience">
-          <div class="title-heading">
-            <h1 class="title"><span>About Myself</span></h1>
-          </div>
-          <div class="self-introduction">
-            <h2>はじめまして、<br>私は金海旭（キムヘウク）です。</h2>
-            <p>プログラミングの世界に入ったのは2018年、その奥深さと面白さに惹かれ、IT業界に就職しました。
-              1年ほどブリッチシステムエンジニアとして働きながら、ITに関する知識の習得に専念してきました。フロントエンド開発に大変興味があり、退職を決め、現在はフロントエンドエンジニアを目指して、いろんなプロジェクトを作りながら、技術力を磨いています。好奇心と自信をもって、これから直面する課題と向き合い、自分の周りの人々に価値を創出できるような活動をしていくのが自分の目標です</p>
-          </div>
-          <div class="details">
-            <div class="personal-info skills">
-              <div class="sub-title">
-                <div class="icons"><i class="icon ion-md-checkmark-circle"></i></div>
-                <h2>スキル</h2>
-              </div>
-              <ul>
-                <li>フロントエンド（HTML, CSS, JavaScript）</li>
-                <li>JSライブラリー（React.js）</li>
-                <li>バックエンド（PHP, Database, SQL）の基礎</li>
-                <li>サーバー（Linux)</li>
-              </ul>
-            </div>
-            <div class="personal-info qualification">
-              <div class="sub-title">
-                <div class="icons"><i class="icon ion-md-trophy"></i></div>
-                <h2>資格</h2>
-              </div>
-              <ul>
-                <li>TOIEC(975)</li>
-                <li>ITパスポート</li>
-                <li>基本情報技術者</li>
-                <li>HTML5プロフェッショナル　レベル1</li>
-                <li>HTML5プロフェッショナル　レベル2</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-  <!-- main end -->
-  <!-- footer start -->
-  <footer>
-    <div class="container">
-      <div class="contact" id="contact">
-        <div class="email">
-          <img class="contact-icon" src="./images/mail.png" alt="mail-icon">
-          <p>jinhaixu@hotmail.co.jp</p>
-        </div>
-        <div class="phone">
-          <img class="contact-icon" src="./images/phone.png" alt="phone-icon">
-          <p>08065610248</p>
-        </div>
-        <div class="copyright">
-          <small>&copy; jin.coding</small>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- footer end -->
-  <script type="text/javascript" src="script.js">
-
-  </script>
-</body>
+  </body>
 </html>
